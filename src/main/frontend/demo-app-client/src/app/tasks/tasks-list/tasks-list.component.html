@@ -1,0 +1,16 @@
+<ul class="list-group">
+  <li *ngFor="let task of tasks" class="list-group-item" >
+      <div class="task-checkbox">
+          <input type="checkbox"
+                 class="list-child"
+                 (change)="onTaskChange($event,task)"
+                 [checked]="task.completed">
+          <span ngClass="{{task.completed ? 'title completed' : 'title'}}">{{ task.title }}</span>
+            <input type="hidden" [value]="task.id" #hiddenIdAccessor />
+  			<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  	   <button (click)="deleteTask(hiddenIdAccessor.value)" style="color:red;margin-left:50%" >Delete</button>
+   
+   
+       </div>
+  </li>
+</ul>
